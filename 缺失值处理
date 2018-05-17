@@ -1,0 +1,118 @@
+> res <- sapply(all,function(x) sum(is.na(x)))
+> miss <- sort(res,decreasing=T)
+> miss[miss>0]
+      PoolQC  MiscFeature        Alley        Fence    SalePrice 
+        2909         2814         2721         2348         1459 
+ FireplaceQu  LotFrontage  GarageYrBlt GarageFinish   GarageQual 
+        1420          486          159          159          159 
+  GarageCond   GarageType     BsmtCond BsmtExposure     BsmtQual 
+         159          157           82           82           81 
+BsmtFinType2 BsmtFinType1   MasVnrType   MasVnrArea     MSZoning 
+          80           79           24           23            4 
+   Utilities BsmtFullBath BsmtHalfBath   Functional  Exterior1st 
+           2            2            2            2            1 
+ Exterior2nd   BsmtFinSF1   BsmtFinSF2    BsmtUnfSF  TotalBsmtSF 
+           1            1            1            1            1 
+  Electrical  KitchenQual   GarageCars   GarageArea     SaleType 
+           1            1            1            1            1 
+
+> summary(all[,names(miss)[miss>0]])
+  PoolQC     MiscFeature  Alley        Fence        SalePrice     
+ Ex  :   4   Gar2:   5   Grvl: 120   GdPrv: 118   Min.   : 34900  
+ Fa  :   2   Othr:   4   Pave:  78   GdWo : 112   1st Qu.:129975  
+ Gd  :   4   Shed:  95   NA's:2721   MnPrv: 329   Median :163000  
+ NA's:2909   TenC:   1               MnWw :  12   Mean   :180921  
+             NA's:2814               NA's :2348   3rd Qu.:214000  
+                                                  Max.   :755000  
+                                                  NA's   :1459    
+ FireplaceQu  LotFrontage      GarageYrBlt   GarageFinish GarageQual 
+ Ex  :  43   Min.   : 21.00   Min.   :1895   Fin : 719    Ex  :   3  
+ Fa  :  74   1st Qu.: 59.00   1st Qu.:1960   RFn : 811    Fa  : 124  
+ Gd  : 744   Median : 68.00   Median :1979   Unf :1230    Gd  :  24  
+ Po  :  46   Mean   : 69.31   Mean   :1978   NA's: 159    Po  :   5  
+ TA  : 592   3rd Qu.: 80.00   3rd Qu.:2002                TA  :2604  
+ NA's:1420   Max.   :313.00   Max.   :2207                NA's: 159  
+             NA's   :486      NA's   :159                            
+ GarageCond    GarageType   BsmtCond    BsmtExposure BsmtQual   
+ Ex  :   3   2Types :  23   Fa  : 104   Av  : 418    Ex  : 258  
+ Fa  :  74   Attchd :1723   Gd  : 122   Gd  : 276    Fa  :  88  
+ Gd  :  15   Basment:  36   Po  :   5   Mn  : 239    Gd  :1209  
+ Po  :  14   BuiltIn: 186   TA  :2606   No  :1904    TA  :1283  
+ TA  :2654   CarPort:  15   NA's:  82   NA's:  82    NA's:  81  
+ NA's: 159   Detchd : 779                                       
+             NA's   : 157                                       
+ BsmtFinType2 BsmtFinType1   MasVnrType     MasVnrArea        MSZoning   
+ ALQ :  52    ALQ :429     BrkCmn :  25   Min.   :   0.0   C (all):  25  
+ BLQ :  68    BLQ :269     BrkFace: 879   1st Qu.:   0.0   FV     : 139  
+ GLQ :  34    GLQ :849     None   :1742   Median :   0.0   RH     :  26  
+ LwQ :  87    LwQ :154     Stone  : 249   Mean   : 102.2   RL     :2265  
+ Rec : 105    Rec :288     NA's   :  24   3rd Qu.: 164.0   RM     : 460  
+ Unf :2493    Unf :851                    Max.   :1600.0   NA's   :   4  
+ NA's:  80    NA's: 79                    NA's   :23                     
+  Utilities     BsmtFullBath     BsmtHalfBath       Functional  
+ AllPub:2916   Min.   :0.0000   Min.   :0.00000   Typ    :2717  
+ NoSeWa:   1   1st Qu.:0.0000   1st Qu.:0.00000   Min2   :  70  
+ NA's  :   2   Median :0.0000   Median :0.00000   Min1   :  65  
+               Mean   :0.4299   Mean   :0.06136   Mod    :  35  
+               3rd Qu.:1.0000   3rd Qu.:0.00000   Maj1   :  19  
+               Max.   :3.0000   Max.   :2.00000   (Other):  11  
+               NA's   :2        NA's   :2         NA's   :   2  
+  Exterior1st    Exterior2nd     BsmtFinSF1       BsmtFinSF2     
+ VinylSd:1025   VinylSd:1014   Min.   :   0.0   Min.   :   0.00  
+ MetalSd: 450   MetalSd: 447   1st Qu.:   0.0   1st Qu.:   0.00  
+ HdBoard: 442   HdBoard: 406   Median : 368.5   Median :   0.00  
+ Wd Sdng: 411   Wd Sdng: 391   Mean   : 441.4   Mean   :  49.58  
+ Plywood: 221   Plywood: 270   3rd Qu.: 733.0   3rd Qu.:   0.00  
+ (Other): 369   (Other): 390   Max.   :5644.0   Max.   :1526.00  
+ NA's   :   1   NA's   :   1   NA's   :1        NA's   :1        
+   BsmtUnfSF       TotalBsmtSF     Electrical   KitchenQual   GarageCars   
+ Min.   :   0.0   Min.   :   0.0   FuseA: 188   Ex  : 205   Min.   :0.000  
+ 1st Qu.: 220.0   1st Qu.: 793.0   FuseF:  50   Fa  :  70   1st Qu.:1.000  
+ Median : 467.0   Median : 989.5   FuseP:   8   Gd  :1151   Median :2.000  
+ Mean   : 560.8   Mean   :1051.8   Mix  :   1   TA  :1492   Mean   :1.767  
+ 3rd Qu.: 805.5   3rd Qu.:1302.0   SBrkr:2671   NA's:   1   3rd Qu.:2.000  
+ Max.   :2336.0   Max.   :6110.0   NA's :   1               Max.   :5.000  
+ NA's   :1        NA's   :1                                 NA's   :1      
+   GarageArea        SaleType   
+ Min.   :   0.0   WD     :2525  
+ 1st Qu.: 320.0   New    : 239  
+ Median : 480.0   COD    :  87  
+ Mean   : 472.9   ConLD  :  26  
+ 3rd Qu.: 576.0   CWD    :  12  
+ Max.   :1488.0   (Other):  29  
+ NA's   :1        NA's   :   1  
+ 
+ #对于有的变量存在缺失值，比如PoolQC,其缺失值达到2909，是非常大的缺失值，但是分析了这几个缺失值的中文意思，发现都是那么泳池，壁炉，围栏等
+  不是房屋标配的设施，所以可以把这些变量都删除
+> > Drop <- names(all) %in% c("PoolQC","MiscFeature","Alley","Fence","FireplaceQu")
+> all <- all[!Drop]
+
+ #此种变量的缺失是因为相互影响的，比如关于地下室这一特征量就有5个变量跟它相关，但是因为没有地下室，这5个变量就缺失，所以就需要用NONE去进行
+ 代替，同时针对房屋修建年份和车库修建年份这两个变量，会发现其一模一样，因此可以将房屋修建年份和车库修建年份进行互相代替
+> Garage <- c("GarageType","GarageQual","GarageCond","GarageFinish")
+> Bsmt <- c("BsmtExposure","BsmtFinType2","BsmtQual","BsmtCond","BsmtFinType1")
+> for (x in c(Garage, Bsmt) )
++ {
++ all[[x]] <- factor( all[[x]], levels= c(levels(all[[x]]),c('None')))
++ all[[x]][is.na(all[[x]])] <- "None"
++ }
+> all$GarageYrBlt[is.na(all$GarageYrBlt)] <- all$YearBuilt[is.na(all$GarageYrBlt)]
+
+ #用中位数来代替缺失值
+> all$LotFrontage[is.na(all$LotFrontage)] <- median(all$LotFrontage, na.rm = T)
+> all[["MasVnrType"]][is.na(all[["MasVnrType"]])] <- "None"
+> all[["MasVnrArea"]][is.na(all[["MasVnrArea"]])] <- 0
+
+ #删除变量
+> all$Utilities <- NULL
+> Param0 <- c("BsmtFullBath","BsmtHalfBath","BsmtFinSF1","BsmtFinSF2","BsmtUnfSF","TotalBsmtSF","GarageCars","GarageArea")
+> for (x in Param0 )    all[[x]][is.na(all[[x]])] <- 0
+
+ #用众数来代替
+> Req <- c("MSZoning","Functional","Exterior1st","Exterior2nd","KitchenQual","Electrical","SaleType")
+> for (x in Req )    all[[x]][is.na(all[[x]])] <- levels(all[[x]])[which.max(table(all[[x]]))]
+
+ #合并训练集和测试集，
+> train <- all[!is.na(all$SalePrice), ]
+> test <- all[is.na(all$SalePrice), ]
+> 
