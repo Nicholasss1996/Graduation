@@ -1,0 +1,23 @@
+library(ggplot2)
+
+#对因子变量画画
+plot2_factor <- function(var_name){
+    source('D:/House/comm/multiplot.r')
+    plots <- list()
+    plots[[1]] <- ggplot(train, aes_string(x = var_name, fill = var_name) ) + 
+        geom_bar() +
+        guides(fill = FALSE) +
+            ggtitle(paste("count of ", var_name)) +
+            theme(axis.text.x = element_text(angle = 90, hjust =1))
+#对数字变量画画
+    plots[[2]] <- ggplot(train, aes_string(x = var_name, y = "SalePrice", fill = var_name) ) +
+        geom_boxplot() +
+        guides(fill = FALSE) +
+        ggtitle(paste( var_name, " vs SalePrice")) +
+        theme(axis.text.x = element_text(angle = 90, hjust =1))
+
+    multiplot(plotlist = plots, cols = 2)   
+}
+plot2_factor("Neighborhood")
+plot2_number("YearBuilt")
+plot2_number("OverallQual")
