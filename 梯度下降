@@ -710,4 +710,4 @@ There were 45 warnings (use warnings() to see them)
 > lm.pred <- predict(lm.gbm, test)
 > res <- data.frame(Id = test$Id, SalePrice = exp(lm.pred)) 
 > write.csv(res, file="D:/House/res_gbm.csv",row.names =FALSE)
-> ```
+```
