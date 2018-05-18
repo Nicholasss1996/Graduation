@@ -1,0 +1,713 @@
+```R
+> library(gbm)
+载入需要的程辑包：survival
+载入需要的程辑包：lattice
+载入需要的程辑包：splines
+载入需要的程辑包：parallel
+Loaded gbm 2.1.3
+Warning message:
+程辑包‘gbm’是用R版本3.4.4 来建造的 
+> library(caret)
+载入需要的程辑包：ggplot2
+
+载入程辑包：‘caret’
+
+The following object is masked from ‘package:survival’:
+
+    cluster
+
+Warning messages:
+1: 程辑包‘caret’是用R版本3.4.4 来建造的 
+2: 程辑包‘ggplot2’是用R版本3.4.4 来建造的 
+> ctrl <- trainControl(method = "cv", number = 10, repeats = 20, verboseIter = TRUE)
+Warning message:
+`repeats` has no meaning for this resampling method. 
+> lm.gbm <- train(log(SalePrice)~ .-Id, data = train,  method = "gbm",  trControl = ctrl)
++ Fold01: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1492             nan     0.1000    0.0140
+     2        0.1371             nan     0.1000    0.0118
+     3        0.1278             nan     0.1000    0.0097
+     4        0.1189             nan     0.1000    0.0083
+     5        0.1114             nan     0.1000    0.0073
+     6        0.1057             nan     0.1000    0.0061
+     7        0.1002             nan     0.1000    0.0060
+     8        0.0947             nan     0.1000    0.0053
+     9        0.0899             nan     0.1000    0.0048
+    10        0.0854             nan     0.1000    0.0044
+    20        0.0566             nan     0.1000    0.0018
+    40        0.0340             nan     0.1000    0.0004
+    60        0.0251             nan     0.1000    0.0001
+    80        0.0210             nan     0.1000    0.0001
+   100        0.0188             nan     0.1000    0.0001
+   120        0.0176             nan     0.1000   -0.0001
+   140        0.0166             nan     0.1000    0.0000
+   150        0.0163             nan     0.1000   -0.0000
+
+- Fold01: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
++ Fold01: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1463             nan     0.1000    0.0165
+     2        0.1329             nan     0.1000    0.0137
+     3        0.1209             nan     0.1000    0.0109
+     4        0.1091             nan     0.1000    0.0103
+     5        0.1010             nan     0.1000    0.0080
+     6        0.0931             nan     0.1000    0.0083
+     7        0.0862             nan     0.1000    0.0062
+     8        0.0796             nan     0.1000    0.0060
+     9        0.0747             nan     0.1000    0.0049
+    10        0.0697             nan     0.1000    0.0050
+    20        0.0405             nan     0.1000    0.0014
+    40        0.0232             nan     0.1000    0.0002
+    60        0.0180             nan     0.1000    0.0001
+    80        0.0157             nan     0.1000    0.0000
+   100        0.0144             nan     0.1000    0.0000
+   120        0.0132             nan     0.1000   -0.0000
+   140        0.0126             nan     0.1000   -0.0001
+   150        0.0123             nan     0.1000   -0.0001
+
+- Fold01: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
++ Fold01: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1443             nan     0.1000    0.0182
+     2        0.1284             nan     0.1000    0.0163
+     3        0.1158             nan     0.1000    0.0121
+     4        0.1042             nan     0.1000    0.0107
+     5        0.0942             nan     0.1000    0.0101
+     6        0.0858             nan     0.1000    0.0077
+     7        0.0784             nan     0.1000    0.0070
+     8        0.0721             nan     0.1000    0.0063
+     9        0.0666             nan     0.1000    0.0054
+    10        0.0613             nan     0.1000    0.0049
+    20        0.0332             nan     0.1000    0.0017
+    40        0.0190             nan     0.1000    0.0001
+    60        0.0147             nan     0.1000   -0.0000
+    80        0.0130             nan     0.1000   -0.0000
+   100        0.0118             nan     0.1000   -0.0001
+   120        0.0111             nan     0.1000   -0.0000
+   140        0.0104             nan     0.1000   -0.0000
+   150        0.0100             nan     0.1000   -0.0000
+
+- Fold01: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
++ Fold02: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1437             nan     0.1000    0.0143
+     2        0.1329             nan     0.1000    0.0112
+     3        0.1237             nan     0.1000    0.0091
+     4        0.1153             nan     0.1000    0.0081
+     5        0.1085             nan     0.1000    0.0068
+     6        0.1026             nan     0.1000    0.0058
+     7        0.0962             nan     0.1000    0.0057
+     8        0.0910             nan     0.1000    0.0050
+     9        0.0864             nan     0.1000    0.0044
+    10        0.0823             nan     0.1000    0.0041
+    20        0.0549             nan     0.1000    0.0018
+    40        0.0331             nan     0.1000    0.0005
+    60        0.0249             nan     0.1000    0.0002
+    80        0.0213             nan     0.1000    0.0001
+   100        0.0192             nan     0.1000    0.0000
+   120        0.0180             nan     0.1000    0.0000
+   140        0.0169             nan     0.1000    0.0000
+   150        0.0166             nan     0.1000   -0.0001
+
+- Fold02: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
++ Fold02: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1399             nan     0.1000    0.0158
+     2        0.1265             nan     0.1000    0.0132
+     3        0.1147             nan     0.1000    0.0117
+     4        0.1053             nan     0.1000    0.0095
+     5        0.0962             nan     0.1000    0.0089
+     6        0.0895             nan     0.1000    0.0065
+     7        0.0829             nan     0.1000    0.0062
+     8        0.0768             nan     0.1000    0.0056
+     9        0.0722             nan     0.1000    0.0047
+    10        0.0675             nan     0.1000    0.0039
+    20        0.0398             nan     0.1000    0.0015
+    40        0.0232             nan     0.1000    0.0002
+    60        0.0183             nan     0.1000    0.0001
+    80        0.0161             nan     0.1000   -0.0000
+   100        0.0147             nan     0.1000    0.0000
+   120        0.0138             nan     0.1000   -0.0001
+   140        0.0132             nan     0.1000   -0.0000
+   150        0.0129             nan     0.1000   -0.0001
+
+- Fold02: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
++ Fold02: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1391             nan     0.1000    0.0174
+     2        0.1237             nan     0.1000    0.0146
+     3        0.1118             nan     0.1000    0.0119
+     4        0.1008             nan     0.1000    0.0105
+     5        0.0907             nan     0.1000    0.0097
+     6        0.0830             nan     0.1000    0.0075
+     7        0.0758             nan     0.1000    0.0066
+     8        0.0701             nan     0.1000    0.0055
+     9        0.0647             nan     0.1000    0.0049
+    10        0.0599             nan     0.1000    0.0045
+    20        0.0330             nan     0.1000    0.0013
+    40        0.0196             nan     0.1000    0.0003
+    60        0.0156             nan     0.1000    0.0001
+    80        0.0137             nan     0.1000   -0.0000
+   100        0.0125             nan     0.1000   -0.0000
+   120        0.0117             nan     0.1000    0.0000
+   140        0.0110             nan     0.1000   -0.0000
+   150        0.0107             nan     0.1000   -0.0001
+
+- Fold02: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
++ Fold03: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1455             nan     0.1000    0.0138
+     2        0.1337             nan     0.1000    0.0111
+     3        0.1244             nan     0.1000    0.0092
+     4        0.1161             nan     0.1000    0.0083
+     5        0.1089             nan     0.1000    0.0070
+     6        0.1022             nan     0.1000    0.0069
+     7        0.0963             nan     0.1000    0.0059
+     8        0.0910             nan     0.1000    0.0052
+     9        0.0862             nan     0.1000    0.0042
+    10        0.0822             nan     0.1000    0.0033
+    20        0.0540             nan     0.1000    0.0020
+    40        0.0325             nan     0.1000    0.0006
+    60        0.0239             nan     0.1000    0.0001
+    80        0.0198             nan     0.1000    0.0000
+   100        0.0177             nan     0.1000    0.0001
+   120        0.0162             nan     0.1000   -0.0000
+   140        0.0152             nan     0.1000    0.0000
+   150        0.0148             nan     0.1000    0.0000
+
+- Fold03: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
++ Fold03: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1435             nan     0.1000    0.0159
+     2        0.1294             nan     0.1000    0.0137
+     3        0.1182             nan     0.1000    0.0107
+     4        0.1071             nan     0.1000    0.0114
+     5        0.0985             nan     0.1000    0.0071
+     6        0.0901             nan     0.1000    0.0085
+     7        0.0835             nan     0.1000    0.0063
+     8        0.0777             nan     0.1000    0.0056
+     9        0.0727             nan     0.1000    0.0043
+    10        0.0680             nan     0.1000    0.0047
+    20        0.0384             nan     0.1000    0.0013
+    40        0.0210             nan     0.1000    0.0003
+    60        0.0162             nan     0.1000   -0.0000
+    80        0.0139             nan     0.1000    0.0000
+   100        0.0127             nan     0.1000   -0.0000
+   120        0.0119             nan     0.1000    0.0000
+   140        0.0113             nan     0.1000   -0.0001
+   150        0.0111             nan     0.1000   -0.0000
+
+- Fold03: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
++ Fold03: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1409             nan     0.1000    0.0183
+     2        0.1252             nan     0.1000    0.0156
+     3        0.1109             nan     0.1000    0.0137
+     4        0.1001             nan     0.1000    0.0101
+     5        0.0907             nan     0.1000    0.0099
+     6        0.0825             nan     0.1000    0.0075
+     7        0.0753             nan     0.1000    0.0071
+     8        0.0691             nan     0.1000    0.0051
+     9        0.0639             nan     0.1000    0.0050
+    10        0.0589             nan     0.1000    0.0048
+    20        0.0313             nan     0.1000    0.0016
+    40        0.0172             nan     0.1000    0.0001
+    60        0.0133             nan     0.1000   -0.0000
+    80        0.0116             nan     0.1000    0.0000
+   100        0.0106             nan     0.1000   -0.0000
+   120        0.0099             nan     0.1000   -0.0001
+   140        0.0093             nan     0.1000   -0.0000
+   150        0.0091             nan     0.1000   -0.0000
+
+- Fold03: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
++ Fold04: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1438             nan     0.1000    0.0139
+     2        0.1329             nan     0.1000    0.0111
+     3        0.1234             nan     0.1000    0.0092
+     4        0.1146             nan     0.1000    0.0080
+     5        0.1074             nan     0.1000    0.0062
+     6        0.1011             nan     0.1000    0.0059
+     7        0.0952             nan     0.1000    0.0055
+     8        0.0901             nan     0.1000    0.0050
+     9        0.0856             nan     0.1000    0.0040
+    10        0.0814             nan     0.1000    0.0042
+    20        0.0544             nan     0.1000    0.0014
+    40        0.0333             nan     0.1000    0.0005
+    60        0.0248             nan     0.1000    0.0000
+    80        0.0209             nan     0.1000    0.0001
+   100        0.0187             nan     0.1000    0.0000
+   120        0.0174             nan     0.1000   -0.0000
+   140        0.0165             nan     0.1000   -0.0000
+   150        0.0161             nan     0.1000    0.0000
+
+- Fold04: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
++ Fold04: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1415             nan     0.1000    0.0162
+     2        0.1281             nan     0.1000    0.0131
+     3        0.1162             nan     0.1000    0.0106
+     4        0.1053             nan     0.1000    0.0102
+     5        0.0971             nan     0.1000    0.0074
+     6        0.0898             nan     0.1000    0.0076
+     7        0.0832             nan     0.1000    0.0061
+     8        0.0773             nan     0.1000    0.0060
+     9        0.0723             nan     0.1000    0.0054
+    10        0.0676             nan     0.1000    0.0044
+    20        0.0398             nan     0.1000    0.0015
+    40        0.0227             nan     0.1000    0.0004
+    60        0.0175             nan     0.1000    0.0000
+    80        0.0153             nan     0.1000    0.0000
+   100        0.0140             nan     0.1000   -0.0001
+   120        0.0131             nan     0.1000   -0.0001
+   140        0.0125             nan     0.1000   -0.0000
+   150        0.0123             nan     0.1000   -0.0001
+
+- Fold04: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
++ Fold04: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1383             nan     0.1000    0.0180
+     2        0.1229             nan     0.1000    0.0152
+     3        0.1098             nan     0.1000    0.0128
+     4        0.0990             nan     0.1000    0.0100
+     5        0.0900             nan     0.1000    0.0086
+     6        0.0822             nan     0.1000    0.0075
+     7        0.0752             nan     0.1000    0.0070
+     8        0.0692             nan     0.1000    0.0060
+     9        0.0636             nan     0.1000    0.0046
+    10        0.0589             nan     0.1000    0.0042
+    20        0.0322             nan     0.1000    0.0011
+    40        0.0183             nan     0.1000    0.0002
+    60        0.0146             nan     0.1000    0.0000
+    80        0.0130             nan     0.1000   -0.0001
+   100        0.0117             nan     0.1000   -0.0000
+   120        0.0109             nan     0.1000   -0.0000
+   140        0.0102             nan     0.1000    0.0000
+   150        0.0099             nan     0.1000   -0.0000
+
+- Fold04: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
++ Fold05: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1438             nan     0.1000    0.0139
+     2        0.1332             nan     0.1000    0.0112
+     3        0.1241             nan     0.1000    0.0091
+     4        0.1161             nan     0.1000    0.0080
+     5        0.1079             nan     0.1000    0.0076
+     6        0.1018             nan     0.1000    0.0063
+     7        0.0961             nan     0.1000    0.0056
+     8        0.0909             nan     0.1000    0.0048
+     9        0.0864             nan     0.1000    0.0037
+    10        0.0820             nan     0.1000    0.0042
+    20        0.0537             nan     0.1000    0.0018
+    40        0.0327             nan     0.1000    0.0003
+    60        0.0243             nan     0.1000    0.0002
+    80        0.0206             nan     0.1000    0.0000
+   100        0.0187             nan     0.1000    0.0001
+   120        0.0173             nan     0.1000   -0.0001
+   140        0.0164             nan     0.1000    0.0000
+   150        0.0161             nan     0.1000   -0.0000
+
+- Fold05: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
++ Fold05: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1415             nan     0.1000    0.0159
+     2        0.1274             nan     0.1000    0.0141
+     3        0.1158             nan     0.1000    0.0108
+     4        0.1056             nan     0.1000    0.0101
+     5        0.0970             nan     0.1000    0.0079
+     6        0.0898             nan     0.1000    0.0071
+     7        0.0828             nan     0.1000    0.0067
+     8        0.0772             nan     0.1000    0.0053
+     9        0.0714             nan     0.1000    0.0056
+    10        0.0666             nan     0.1000    0.0048
+    20        0.0402             nan     0.1000    0.0012
+    40        0.0222             nan     0.1000    0.0004
+    60        0.0175             nan     0.1000    0.0001
+    80        0.0153             nan     0.1000    0.0000
+   100        0.0138             nan     0.1000   -0.0000
+   120        0.0130             nan     0.1000   -0.0000
+   140        0.0123             nan     0.1000    0.0000
+   150        0.0120             nan     0.1000   -0.0000
+
+- Fold05: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
++ Fold05: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1393             nan     0.1000    0.0177
+     2        0.1242             nan     0.1000    0.0154
+     3        0.1116             nan     0.1000    0.0109
+     4        0.0999             nan     0.1000    0.0110
+     5        0.0902             nan     0.1000    0.0100
+     6        0.0822             nan     0.1000    0.0073
+     7        0.0747             nan     0.1000    0.0073
+     8        0.0683             nan     0.1000    0.0054
+     9        0.0627             nan     0.1000    0.0054
+    10        0.0578             nan     0.1000    0.0038
+    20        0.0324             nan     0.1000    0.0014
+    40        0.0182             nan     0.1000    0.0002
+    60        0.0145             nan     0.1000   -0.0000
+    80        0.0128             nan     0.1000   -0.0000
+   100        0.0117             nan     0.1000   -0.0000
+   120        0.0108             nan     0.1000   -0.0001
+   140        0.0102             nan     0.1000   -0.0001
+   150        0.0100             nan     0.1000   -0.0000
+
+- Fold05: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
++ Fold06: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1459             nan     0.1000    0.0143
+     2        0.1346             nan     0.1000    0.0113
+     3        0.1259             nan     0.1000    0.0083
+     4        0.1178             nan     0.1000    0.0084
+     5        0.1099             nan     0.1000    0.0073
+     6        0.1033             nan     0.1000    0.0064
+     7        0.0974             nan     0.1000    0.0055
+     8        0.0926             nan     0.1000    0.0048
+     9        0.0874             nan     0.1000    0.0046
+    10        0.0833             nan     0.1000    0.0044
+    20        0.0556             nan     0.1000    0.0014
+    40        0.0337             nan     0.1000    0.0006
+    60        0.0251             nan     0.1000    0.0001
+    80        0.0213             nan     0.1000    0.0001
+   100        0.0191             nan     0.1000    0.0000
+   120        0.0178             nan     0.1000    0.0000
+   140        0.0170             nan     0.1000    0.0000
+   150        0.0167             nan     0.1000   -0.0000
+
+- Fold06: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
++ Fold06: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1446             nan     0.1000    0.0161
+     2        0.1306             nan     0.1000    0.0137
+     3        0.1195             nan     0.1000    0.0105
+     4        0.1085             nan     0.1000    0.0113
+     5        0.1003             nan     0.1000    0.0083
+     6        0.0930             nan     0.1000    0.0069
+     7        0.0858             nan     0.1000    0.0071
+     8        0.0799             nan     0.1000    0.0058
+     9        0.0743             nan     0.1000    0.0053
+    10        0.0694             nan     0.1000    0.0046
+    20        0.0407             nan     0.1000    0.0016
+    40        0.0232             nan     0.1000    0.0003
+    60        0.0186             nan     0.1000    0.0000
+    80        0.0162             nan     0.1000   -0.0000
+   100        0.0151             nan     0.1000   -0.0001
+   120        0.0142             nan     0.1000   -0.0000
+   140        0.0135             nan     0.1000   -0.0000
+   150        0.0132             nan     0.1000    0.0000
+
+- Fold06: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
++ Fold06: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1417             nan     0.1000    0.0190
+     2        0.1256             nan     0.1000    0.0156
+     3        0.1133             nan     0.1000    0.0124
+     4        0.1021             nan     0.1000    0.0104
+     5        0.0920             nan     0.1000    0.0093
+     6        0.0836             nan     0.1000    0.0077
+     7        0.0774             nan     0.1000    0.0051
+     8        0.0711             nan     0.1000    0.0067
+     9        0.0653             nan     0.1000    0.0051
+    10        0.0606             nan     0.1000    0.0044
+    20        0.0329             nan     0.1000    0.0014
+    40        0.0193             nan     0.1000    0.0002
+    60        0.0156             nan     0.1000    0.0000
+    80        0.0139             nan     0.1000   -0.0000
+   100        0.0125             nan     0.1000   -0.0000
+   120        0.0116             nan     0.1000    0.0000
+   140        0.0109             nan     0.1000   -0.0000
+   150        0.0106             nan     0.1000    0.0000
+
+- Fold06: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
++ Fold07: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1462             nan     0.1000    0.0144
+     2        0.1347             nan     0.1000    0.0115
+     3        0.1250             nan     0.1000    0.0092
+     4        0.1175             nan     0.1000    0.0069
+     5        0.1100             nan     0.1000    0.0076
+     6        0.1035             nan     0.1000    0.0063
+     7        0.0976             nan     0.1000    0.0055
+     8        0.0926             nan     0.1000    0.0047
+     9        0.0882             nan     0.1000    0.0043
+    10        0.0839             nan     0.1000    0.0041
+    20        0.0559             nan     0.1000    0.0019
+    40        0.0338             nan     0.1000    0.0005
+    60        0.0253             nan     0.1000    0.0002
+    80        0.0212             nan     0.1000    0.0001
+   100        0.0190             nan     0.1000    0.0001
+   120        0.0175             nan     0.1000   -0.0000
+   140        0.0166             nan     0.1000    0.0000
+   150        0.0162             nan     0.1000   -0.0001
+
+- Fold07: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
++ Fold07: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1437             nan     0.1000    0.0160
+     2        0.1309             nan     0.1000    0.0131
+     3        0.1195             nan     0.1000    0.0113
+     4        0.1101             nan     0.1000    0.0095
+     5        0.1004             nan     0.1000    0.0098
+     6        0.0920             nan     0.1000    0.0086
+     7        0.0855             nan     0.1000    0.0060
+     8        0.0798             nan     0.1000    0.0046
+     9        0.0744             nan     0.1000    0.0052
+    10        0.0691             nan     0.1000    0.0049
+    20        0.0395             nan     0.1000    0.0016
+    40        0.0229             nan     0.1000    0.0001
+    60        0.0180             nan     0.1000    0.0001
+    80        0.0157             nan     0.1000   -0.0000
+   100        0.0144             nan     0.1000    0.0000
+   120        0.0134             nan     0.1000    0.0000
+   140        0.0128             nan     0.1000   -0.0001
+   150        0.0125             nan     0.1000   -0.0000
+
+- Fold07: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
++ Fold07: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1417             nan     0.1000    0.0182
+     2        0.1259             nan     0.1000    0.0148
+     3        0.1137             nan     0.1000    0.0127
+     4        0.1031             nan     0.1000    0.0094
+     5        0.0931             nan     0.1000    0.0096
+     6        0.0840             nan     0.1000    0.0071
+     7        0.0770             nan     0.1000    0.0063
+     8        0.0707             nan     0.1000    0.0061
+     9        0.0650             nan     0.1000    0.0051
+    10        0.0602             nan     0.1000    0.0045
+    20        0.0331             nan     0.1000    0.0013
+    40        0.0190             nan     0.1000   -0.0000
+    60        0.0152             nan     0.1000   -0.0000
+    80        0.0133             nan     0.1000   -0.0000
+   100        0.0121             nan     0.1000   -0.0000
+   120        0.0112             nan     0.1000   -0.0000
+   140        0.0105             nan     0.1000    0.0000
+   150        0.0102             nan     0.1000    0.0000
+
+- Fold07: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
++ Fold08: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1464             nan     0.1000    0.0141
+     2        0.1352             nan     0.1000    0.0115
+     3        0.1258             nan     0.1000    0.0094
+     4        0.1168             nan     0.1000    0.0085
+     5        0.1088             nan     0.1000    0.0076
+     6        0.1021             nan     0.1000    0.0065
+     7        0.0966             nan     0.1000    0.0052
+     8        0.0908             nan     0.1000    0.0053
+     9        0.0864             nan     0.1000    0.0044
+    10        0.0822             nan     0.1000    0.0045
+    20        0.0543             nan     0.1000    0.0015
+    40        0.0325             nan     0.1000    0.0005
+    60        0.0240             nan     0.1000    0.0002
+    80        0.0200             nan     0.1000    0.0001
+   100        0.0178             nan     0.1000    0.0000
+   120        0.0166             nan     0.1000    0.0000
+   140        0.0157             nan     0.1000   -0.0000
+   150        0.0153             nan     0.1000    0.0000
+
+- Fold08: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
++ Fold08: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1436             nan     0.1000    0.0160
+     2        0.1304             nan     0.1000    0.0140
+     3        0.1188             nan     0.1000    0.0105
+     4        0.1079             nan     0.1000    0.0108
+     5        0.0993             nan     0.1000    0.0089
+     6        0.0914             nan     0.1000    0.0075
+     7        0.0847             nan     0.1000    0.0066
+     8        0.0787             nan     0.1000    0.0055
+     9        0.0734             nan     0.1000    0.0049
+    10        0.0683             nan     0.1000    0.0051
+    20        0.0402             nan     0.1000    0.0015
+    40        0.0220             nan     0.1000    0.0003
+    60        0.0169             nan     0.1000    0.0001
+    80        0.0147             nan     0.1000    0.0000
+   100        0.0134             nan     0.1000    0.0000
+   120        0.0125             nan     0.1000    0.0000
+   140        0.0120             nan     0.1000    0.0000
+   150        0.0117             nan     0.1000   -0.0000
+
+- Fold08: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
++ Fold08: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1418             nan     0.1000    0.0194
+     2        0.1272             nan     0.1000    0.0155
+     3        0.1134             nan     0.1000    0.0134
+     4        0.1025             nan     0.1000    0.0108
+     5        0.0931             nan     0.1000    0.0085
+     6        0.0842             nan     0.1000    0.0093
+     7        0.0769             nan     0.1000    0.0077
+     8        0.0703             nan     0.1000    0.0060
+     9        0.0643             nan     0.1000    0.0059
+    10        0.0592             nan     0.1000    0.0047
+    20        0.0325             nan     0.1000    0.0012
+    40        0.0181             nan     0.1000    0.0001
+    60        0.0143             nan     0.1000    0.0001
+    80        0.0126             nan     0.1000   -0.0000
+   100        0.0116             nan     0.1000   -0.0000
+   120        0.0106             nan     0.1000   -0.0000
+   140        0.0099             nan     0.1000   -0.0000
+   150        0.0096             nan     0.1000   -0.0000
+
+- Fold08: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
++ Fold09: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1427             nan     0.1000    0.0137
+     2        0.1317             nan     0.1000    0.0113
+     3        0.1228             nan     0.1000    0.0092
+     4        0.1142             nan     0.1000    0.0082
+     5        0.1073             nan     0.1000    0.0064
+     6        0.1011             nan     0.1000    0.0063
+     7        0.0946             nan     0.1000    0.0059
+     8        0.0897             nan     0.1000    0.0045
+     9        0.0853             nan     0.1000    0.0040
+    10        0.0809             nan     0.1000    0.0044
+    20        0.0537             nan     0.1000    0.0018
+    40        0.0331             nan     0.1000    0.0005
+    60        0.0247             nan     0.1000    0.0001
+    80        0.0212             nan     0.1000    0.0000
+   100        0.0191             nan     0.1000    0.0000
+   120        0.0177             nan     0.1000   -0.0001
+   140        0.0170             nan     0.1000   -0.0001
+   150        0.0167             nan     0.1000   -0.0000
+
+- Fold09: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
++ Fold09: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1404             nan     0.1000    0.0157
+     2        0.1273             nan     0.1000    0.0125
+     3        0.1167             nan     0.1000    0.0115
+     4        0.1064             nan     0.1000    0.0104
+     5        0.0972             nan     0.1000    0.0083
+     6        0.0896             nan     0.1000    0.0068
+     7        0.0831             nan     0.1000    0.0059
+     8        0.0776             nan     0.1000    0.0051
+     9        0.0720             nan     0.1000    0.0053
+    10        0.0673             nan     0.1000    0.0043
+    20        0.0397             nan     0.1000    0.0015
+    40        0.0230             nan     0.1000    0.0003
+    60        0.0182             nan     0.1000    0.0001
+    80        0.0157             nan     0.1000    0.0001
+   100        0.0143             nan     0.1000   -0.0000
+   120        0.0134             nan     0.1000    0.0000
+   140        0.0127             nan     0.1000   -0.0000
+   150        0.0124             nan     0.1000   -0.0000
+
+- Fold09: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
++ Fold09: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1385             nan     0.1000    0.0197
+     2        0.1235             nan     0.1000    0.0154
+     3        0.1105             nan     0.1000    0.0122
+     4        0.0996             nan     0.1000    0.0107
+     5        0.0908             nan     0.1000    0.0093
+     6        0.0824             nan     0.1000    0.0077
+     7        0.0752             nan     0.1000    0.0068
+     8        0.0692             nan     0.1000    0.0057
+     9        0.0639             nan     0.1000    0.0056
+    10        0.0591             nan     0.1000    0.0040
+    20        0.0332             nan     0.1000    0.0012
+    40        0.0189             nan     0.1000    0.0003
+    60        0.0147             nan     0.1000    0.0001
+    80        0.0130             nan     0.1000   -0.0000
+   100        0.0119             nan     0.1000   -0.0000
+   120        0.0112             nan     0.1000   -0.0001
+   140        0.0105             nan     0.1000   -0.0000
+   150        0.0102             nan     0.1000   -0.0000
+
+- Fold09: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
++ Fold10: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1479             nan     0.1000    0.0143
+     2        0.1373             nan     0.1000    0.0104
+     3        0.1276             nan     0.1000    0.0103
+     4        0.1190             nan     0.1000    0.0082
+     5        0.1121             nan     0.1000    0.0069
+     6        0.1056             nan     0.1000    0.0067
+     7        0.0997             nan     0.1000    0.0057
+     8        0.0946             nan     0.1000    0.0050
+     9        0.0897             nan     0.1000    0.0050
+    10        0.0855             nan     0.1000    0.0041
+    20        0.0579             nan     0.1000    0.0011
+    40        0.0346             nan     0.1000    0.0007
+    60        0.0259             nan     0.1000    0.0002
+    80        0.0219             nan     0.1000    0.0001
+   100        0.0198             nan     0.1000    0.0001
+   120        0.0184             nan     0.1000   -0.0001
+   140        0.0173             nan     0.1000    0.0000
+   150        0.0169             nan     0.1000   -0.0000
+
+- Fold10: shrinkage=0.1, interaction.depth=1, n.minobsinnode=10, n.trees=150 
++ Fold10: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1456             nan     0.1000    0.0165
+     2        0.1325             nan     0.1000    0.0135
+     3        0.1199             nan     0.1000    0.0116
+     4        0.1102             nan     0.1000    0.0101
+     5        0.1005             nan     0.1000    0.0101
+     6        0.0929             nan     0.1000    0.0074
+     7        0.0859             nan     0.1000    0.0067
+     8        0.0795             nan     0.1000    0.0061
+     9        0.0745             nan     0.1000    0.0049
+    10        0.0699             nan     0.1000    0.0043
+    20        0.0408             nan     0.1000    0.0018
+    40        0.0237             nan     0.1000    0.0003
+    60        0.0185             nan     0.1000    0.0001
+    80        0.0161             nan     0.1000   -0.0000
+   100        0.0148             nan     0.1000   -0.0000
+   120        0.0138             nan     0.1000   -0.0000
+   140        0.0132             nan     0.1000   -0.0001
+   150        0.0128             nan     0.1000   -0.0000
+
+- Fold10: shrinkage=0.1, interaction.depth=2, n.minobsinnode=10, n.trees=150 
++ Fold10: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1439             nan     0.1000    0.0184
+     2        0.1282             nan     0.1000    0.0152
+     3        0.1150             nan     0.1000    0.0122
+     4        0.1032             nan     0.1000    0.0122
+     5        0.0937             nan     0.1000    0.0088
+     6        0.0856             nan     0.1000    0.0078
+     7        0.0785             nan     0.1000    0.0064
+     8        0.0719             nan     0.1000    0.0059
+     9        0.0665             nan     0.1000    0.0055
+    10        0.0617             nan     0.1000    0.0043
+    20        0.0339             nan     0.1000    0.0011
+    40        0.0193             nan     0.1000    0.0002
+    60        0.0154             nan     0.1000    0.0000
+    80        0.0134             nan     0.1000   -0.0000
+   100        0.0123             nan     0.1000   -0.0001
+   120        0.0114             nan     0.1000   -0.0001
+   140        0.0107             nan     0.1000   -0.0000
+   150        0.0103             nan     0.1000   -0.0000
+
+- Fold10: shrinkage=0.1, interaction.depth=3, n.minobsinnode=10, n.trees=150 
+Aggregating results
+Selecting tuning parameters
+Fitting n.trees = 150, interaction.depth = 3, shrinkage = 0.1, n.minobsinnode = 10 on full training set
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        0.1412             nan     0.1000    0.0186
+     2        0.1262             nan     0.1000    0.0147
+     3        0.1135             nan     0.1000    0.0129
+     4        0.1030             nan     0.1000    0.0091
+     5        0.0922             nan     0.1000    0.0095
+     6        0.0842             nan     0.1000    0.0079
+     7        0.0772             nan     0.1000    0.0069
+     8        0.0704             nan     0.1000    0.0060
+     9        0.0650             nan     0.1000    0.0050
+    10        0.0602             nan     0.1000    0.0043
+    20        0.0329             nan     0.1000    0.0013
+    40        0.0190             nan     0.1000    0.0003
+    60        0.0152             nan     0.1000   -0.0000
+    80        0.0132             nan     0.1000   -0.0000
+   100        0.0120             nan     0.1000   -0.0000
+   120        0.0112             nan     0.1000   -0.0000
+   140        0.0105             nan     0.1000   -0.0000
+   150        0.0102             nan     0.1000   -0.0000
+
+There were 45 warnings (use warnings() to see them)
+> lm.pred <- predict(lm.gbm, test)
+> res <- data.frame(Id = test$Id, SalePrice = exp(lm.pred)) 
+> write.csv(res, file="D:/House/res_gbm.csv",row.names =FALSE)
+> ```
